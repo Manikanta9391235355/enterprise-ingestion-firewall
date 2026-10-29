@@ -1,0 +1,159 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <title>Firewall AI | Enterprise Assistant</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="app">
+
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-logo">F</div>
+      <div>
+        <h2>Firewall AI</h2>
+        <p>Enterprise Assistant</p>
+      </div>
+    </div>
+
+    <button id="newChatBtn" class="new-chat">
+      + New Chat
+    </button>
+
+    <div class="sidebar-section">
+      <p class="section-label">CURRENT SESSION</p>
+      <div class="session-card">
+        <span class="status-dot"></span>
+        <span id="sessionLabel">Not started</span>
+      </div>
+    </div>
+
+    <div class="sidebar-bottom">
+      <div>
+        <span class="status-dot"></span>
+        <span id="connectionStatus">Checking API...</span>
+      </div>
+      <p>Powered by OpenRouter + FastAPI</p>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <header class="header">
+      <div>
+        <h3>AI Conversation Workspace</h3>
+        <p>Structured analysis and contextual responses</p>
+      </div>
+      <span class="header-badge">AI Assistant</span>
+    </header>
+
+    <div class="workspace">
+
+      <section class="chat-panel">
+        <div id="chatMessages" class="messages">
+
+          <div id="welcome" class="welcome">
+            <div class="welcome-icon">✦</div>
+            <h1>How can I help you today?</h1>
+            <p>
+              Ask about billing, technical support,
+              financial issues, or general questions.
+            </p>
+
+            <div class="suggestions">
+              <button class="suggestion"
+                data-message="I was charged twice for my subscription.">
+                Billing issue
+              </button>
+
+              <button class="suggestion"
+                data-message="My Python API is returning a 500 error.">
+                Technical support
+              </button>
+
+              <button class="suggestion"
+                data-message="How can I improve customer support?">
+                Customer support
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+        <div id="errorBox" class="error hidden"></div>
+
+        <form id="chatForm" class="composer">
+          <textarea
+            id="messageInput"
+            placeholder="Ask your question..."
+            maxlength="4000"
+            rows="1"
+            required
+          ></textarea>
+
+          <button id="sendBtn" type="submit">
+            Send
+          </button>
+        </form>
+
+        <div class="composer-note">
+          AI responses may contain mistakes.
+          Verify important information.
+        </div>
+      </section>
+
+      <aside class="insights">
+        <div class="insights-heading">
+          <h3>Firewall Insights</h3>
+          <p>Live structured message analysis</p>
+        </div>
+
+        <div id="emptyInsights" class="empty-insights">
+          Send a message to view intent, risk,
+          priority, and token metadata.
+        </div>
+
+        <div id="insightResults" class="hidden">
+
+          <div class="metric">
+            <span>Detected Intent</span>
+            <strong id="intentValue">—</strong>
+            <small id="confidenceValue">—</small>
+          </div>
+
+          <div class="metric">
+            <span>Risk Level</span>
+            <strong id="riskValue">—</strong>
+            <small id="riskReason">—</small>
+          </div>
+
+          <div class="metric">
+            <span>Priority</span>
+            <strong id="priorityValue">—</strong>
+            <small id="priorityScore">—</small>
+          </div>
+
+          <div class="metric">
+            <span>Token Usage</span>
+            <strong id="totalTokens">0</strong>
+            <small id="tokenDetails">—</small>
+          </div>
+
+        </div>
+      </aside>
+
+    </div>
+  </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dompurify/dist/purify.min.js"></script>
+<script src="/static/script.js"></script>
+
+</body>
+</html>
